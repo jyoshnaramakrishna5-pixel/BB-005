@@ -11,7 +11,14 @@
       "confidence": 0.0,
       "evidence": {
         "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "summary": 
+   "Tested configurations with zero anomaly ratio, maximum clearance, zero escorts, strong history score, and zero recent denials received APPROVE decisions with scores above 0.95.",
+  "evidence": [
+    "Query #32: score 0.9540, APPROVE",
+    "Query #40: score 0.9648, APPROVE",
+    "Query #41: score 0.9651, APPROVE"
+  ]
+
       }
     }
   ]
