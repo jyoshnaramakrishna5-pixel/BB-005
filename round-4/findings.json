@@ -5,13 +5,68 @@
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
-      "direction": "increases",
-      "strength": "strong",
-      "confidence": 0.0,
+      "feature": "anomaly_ratio",
+      "direction": "increases_decline_risk",
+      "strength": "moderate",
+      "confidence": 0.72,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": ["R4-80", "R4-51", "R4-35", "R4-30", "R4-12"],
+        "summary": "Higher anomaly_ratio is frequently associated with lower scores and DECLINE outcomes, although it does not independently determine the decision."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "tenure_years",
+      "direction": "increases_approval_tendency",
+      "strength": "moderate",
+      "confidence": 0.68,
+      "evidence": {
+        "query_ids": ["R4-79", "R4-73", "R4-53", "R4-35", "R4-26", "R4-1"],
+        "summary": "Higher tenure values are often associated with APPROVE outcomes, while several low-tenure observations produce DECLINE, but tenure alone is not sufficient to explain the decision."
+      }
+    },
+    {
+      "type": "output_behavior",
+      "feature": "multiple_features",
+      "direction": "combined_effect",
+      "strength": "strong",
+      "confidence": 0.84,
+      "evidence": {
+        "query_ids": ["R4-65", "R4-46", "R4-45", "R4-42", "R4-29", "R4-26", "R4-23", "R4-1"],
+        "summary": "DECLINE outcomes occur under different combinations of inputs, indicating that the system likely uses interactions among multiple features rather than a single-feature rule."
+      }
+    },
+    {
+      "type": "score_behavior",
+      "feature": "score",
+      "direction": "has_lower_bound_behavior",
+      "strength": "strong",
+      "confidence": 0.91,
+      "evidence": {
+        "query_ids": ["R4-65", "R4-46", "R4-45", "R4-42", "R4-35", "R4-29", "R4-26", "R4-23", "R4-1"],
+        "summary": "Multiple distinct input combinations produce exactly 0.0320 with a DECLINE decision, suggesting a possible score floor or discrete rejection behavior."
+      }
+    },
+    {
+      "type": "duplicate_behavior",
+      "feature": "identical_inputs",
+      "direction": "same_output",
+      "strength": "strong",
+      "confidence": 1.0,
+      "evidence": {
+        "query_ids": ["R4-76", "R4-75", "R4-56", "R4-55", "R4-54", "R4-44", "R4-43"],
+        "summary": "Identical input combinations produce identical scores and decisions, supporting deterministic behavior for repeated inputs."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "single_feature_rule",
+      "direction": "not_supported",
+      "strength": "strong",
+      "confidence": 0.88,
+      "evidence": {
+        "query_ids": ["R4-79", "R4-80", "R4-74", "R4-53", "R4-51", "R4-50"],
+        "summary": "The observed data does not support a rule in which one individual feature alone determines APPROVE or DECLINE."
       }
     }
   ]
