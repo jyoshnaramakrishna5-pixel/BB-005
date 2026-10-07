@@ -1,17 +1,149 @@
 {
   "round": "round-2",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-005",
+  "queries_used": 89,
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
+      "feature": "anomaly_ratio",
       "direction": "increases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.92,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": ["R2-20", "R2-30", "R2-40", "R2-50", "R2-60", "R2-80", "R2-89"],
+        "summary": "Higher anomaly_ratio values are generally associated with higher scores and APPROVE outcomes."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "badge_age_days",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.78,
+      "evidence": {
+        "query_ids": ["R2-70", "R2-73", "R2-80", "R2-89"],
+        "summary": "Lower badge_age_days values are generally associated with stronger scores in the observed data."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "clearance_level",
+      "direction": "increases",
+      "strength": "strong",
+      "confidence": 0.95,
+      "evidence": {
+        "query_ids": ["R2-1", "R2-10", "R2-20", "R2-40", "R2-60", "R2-89"],
+        "summary": "Higher clearance_level values are strongly associated with higher scores and APPROVE outcomes."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "escorts",
+      "direction": "decreases",
+      "strength": "weak",
+      "confidence": 0.68,
+      "evidence": {
+        "query_ids": ["R2-42", "R2-43", "R2-44", "R2-60", "R2-61"],
+        "summary": "Changes in escorts show only small differences in score when other parameters are similar."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "history_score",
+      "direction": "increases",
+      "strength": "moderate",
+      "confidence": 0.84,
+      "evidence": {
+        "query_ids": ["R2-32", "R2-33", "R2-34", "R2-64", "R2-65"],
+        "summary": "Higher history_score values are generally associated with high APPROVE scores."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "linked_badges",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.81,
+      "evidence": {
+        "query_ids": ["R2-13", "R2-14", "R2-15", "R2-16", "R2-17", "R2-18", "R2-19"],
+        "summary": "Higher linked_badges values are associated with weaker outcomes in the observed region, with particularly poor results at high linked_badges values."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "recent_denials",
+      "direction": "independent",
+      "strength": "moderate",
+      "confidence": 0.76,
+      "evidence": {
+        "query_ids": ["R2-19", "R2-20", "R2-30", "R2-40", "R2-50", "R2-60"],
+        "summary": "Changes in recent_denials do not show a consistent standalone effect on the score."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "requested_zone",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.82,
+      "evidence": {
+        "query_ids": ["R2-16", "R2-17", "R2-18", "R2-19", "R2-20"],
+        "summary": "Lower requested_zone values are associated with stronger scores in the observed data, while higher values can produce substantially weaker outcomes."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "site",
+      "direction": "independent",
+      "strength": "strong",
+      "confidence": 0.88,
+      "evidence": {
+        "query_ids": ["R2-83", "R2-84", "R2-85", "R2-86", "R2-87", "R2-88", "R2-89"],
+        "summary": "Changing site between A, B, C and D while keeping the other parameters nearly constant still produces APPROVE results with high scores. Therefore site has relatively little standalone influence in this region."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "tenure_years",
+      "direction": "increases",
+      "strength": "moderate",
+      "confidence": 0.83,
+      "evidence": {
+        "query_ids": ["R2-5", "R2-10", "R2-20", "R2-30", "R2-40", "R2-50", "R2-60", "R2-80", "R2-89"],
+        "summary": "Higher tenure_years values are generally associated with higher scores within comparable parameter settings."
+      }
+    },
+    {
+      "type": "relational_effect",
+      "features": ["linked_badges", "requested_zone"],
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.96,
+      "evidence": {
+        "query_ids": ["R2-16", "R2-17", "R2-18", "R2-19"],
+        "summary": "The combination of high linked_badges and unfavorable requested_zone values is strongly associated with low scores and DECLINE outcomes."
+      }
+    },
+    {
+      "type": "relational_effect",
+      "features": ["clearance_level", "history_score", "linked_badges"],
+      "direction": "increases",
+      "strength": "strong",
+      "confidence": 0.91,
+      "evidence": {
+        "query_ids": ["R2-20", "R2-30", "R2-40", "R2-50", "R2-60", "R2-80", "R2-89"],
+        "summary": "High clearance_level and history_score combined with relatively low linked_badges is repeatedly associated with high APPROVE scores."
+      }
+    },
+    {
+      "type": "relational_effect",
+      "features": ["anomaly_ratio", "badge_age_days", "clearance_level"],
+      "direction": "increases",
+      "strength": "strong",
+      "confidence": 0.89,
+      "evidence": {
+        "query_ids": ["R2-57", "R2-60", "R2-70", "R2-80", "R2-89"],
+        "summary": "The strongest observed region occurs with anomaly_ratio around 0.725, badge_age_days around 20 to 23, and clearance_level at 90 or higher."
       }
     }
   ]
