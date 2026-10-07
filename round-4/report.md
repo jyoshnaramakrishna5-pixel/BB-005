@@ -1,7 +1,7 @@
 # round-4 — Reconstruct
 
 **Team:** BB-005
-**Queries used:** 0 / budget
+**Queries used:** 80 / 80
 
 ## What we concluded
 The system produces a score between 0 and 1 along with an APPROVE or DECLINE decision. The observed results indicate that the decision depends on a combination of multiple input parameters rather than one parameter alone. Several different inputs produce DECLINE with a score of 0.0320, indicating a possible score floor or repeated rejection behavior.
